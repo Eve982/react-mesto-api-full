@@ -1,0 +1,17 @@
+.authorization__input {
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.214;
+  font-weight: 500;
+  background: inherit;
+  border: none;
+  border-bottom: 2px solid #cccccc;
+  width: 100%;
+  outline: none;
+  padding: 0 0 10px 0;
+}
+
+.authorization__input:first-child {
+    margin-bottom: 25px;
+}

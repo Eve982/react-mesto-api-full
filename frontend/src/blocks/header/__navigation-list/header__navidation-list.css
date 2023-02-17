@@ -1,0 +1,4 @@
+.header__navigation-list {
+    display: flex;
+    gap: 24px;
+}
