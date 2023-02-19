@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
 
 const { PORT = 3000, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 const routes = require('./routes/index');
@@ -17,6 +18,7 @@ app.use(requestLogger);
 
 app.use(cookieParser());
 app.use(express.json());
+app.use(cors);
 mongoose.connect(MONGO_URL, { useNewUrlParser: true });
 
 app.get('/crash-test', () => {
