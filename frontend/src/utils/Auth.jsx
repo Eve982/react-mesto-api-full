@@ -13,6 +13,8 @@ function getServerResponse(res) {
 export const register = ({ email, password }) => {
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
+    mode: 'cors',
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json",
     },
@@ -25,6 +27,8 @@ export const register = ({ email, password }) => {
 export const authorize = ({ email, password }) => {
   return fetch(`${BASE_URL}/signin`, {
     method: "POST",
+    mode: 'cors',
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json",
     },
@@ -42,6 +46,8 @@ export const authorize = ({ email, password }) => {
 export const checkTokenApi = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
+    mode: 'cors',
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

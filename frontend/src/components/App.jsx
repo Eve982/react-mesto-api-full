@@ -38,7 +38,7 @@ function App() {
         history.push("/signin");
       })
       .catch((err) => {
-        console.log("smth wrong");
+        console.log('smth wrong');
         setIsAuthSuccess(false);
       })
       .finally(() => {
@@ -70,6 +70,7 @@ function App() {
         .catch((err) => console.log(err));
     }
   }
+
   useEffect(() => {
     checkToken();
   }, []);
