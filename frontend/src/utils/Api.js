@@ -1,7 +1,7 @@
 class Api {
-  constructor({ baseUrl, headers }) {
+  constructor({ baseUrl, headers, mode, credentials }) {
+    this._BASECONFIG = { headers, mode, credentials }
     this._baseUrl = baseUrl;
-    this._headers = headers;
     this._getServerResponse = this._getServerResponse.bind(this);
   }
 
@@ -15,65 +15,65 @@ class Api {
   }
 
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
-    }).then(this._getServerResponse);
+    return fetch(`${this._baseUrl}/cards`, this._BASECONFIG)
+    .then(this._getServerResponse);
   }
 
   getInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
-    }).then(this._getServerResponse);
+    return fetch(`${this._baseUrl}/users/me`, this._BASECONFIG)
+    .then(this._getServerResponse);
   }
 
   updateInfo(data) {
     return fetch(`${this._baseUrl}/users/me`, {
+      ...this._BASECONFIG,
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify(data),
     }).then(this._getServerResponse);
   }
 
   updateAvatar(data) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
+      ...this._BASECONFIG,
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify(data),
     }).then(this._getServerResponse);
   }
 
   addNewCard(data) {
     return fetch(`${this._baseUrl}/cards`, {
+      ...this._BASECONFIG,
       method: "POST",
-      headers: this._headers,
       body: JSON.stringify(data),
     }).then(this._getServerResponse);
   }
 
   setLike(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      ...this._BASECONFIG,
       method: "PUT",
-      headers: this._headers,
     }).then(this._getServerResponse);
   }
 
   deleteLike(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      ...this._BASECONFIG,
       method: "DELETE",
-      headers: this._headers,
     }).then(this._getServerResponse);
   }
 
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      ...this._BASECONFIG,
       method: "DELETE",
-      headers: this._headers,
     }).then(this._getServerResponse);
   }
 }
 
 const api = new Api({
   baseUrl: "http://localhost:3000",
+  mode: 'cors',
+  credentials: 'include',
   headers: {
     "Content-Type": "application/json",
   },

@@ -13,7 +13,8 @@ module.exports.getCards = (req, res, next) => {
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   Card.create({ name, link, owner: req.user._id })
-    .then((cardsData) => res.status(CREATED).send({ cardsData }))
+  // проверить точно ли это тот юзер айди с сервера?
+    .then((card) => res.status(CREATED).send(card))
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
         return next(new NotFoundError('Переданы некорректные данные при создании карточки.'));
@@ -22,10 +23,13 @@ module.exports.createCard = (req, res, next) => {
 };
 
 module.exports.deleteCard = (req, res, next) => {
+  console.log('req.user._id: ', req.user._id);
+  console.log('req.params.cardId: ', req.params.cardId);
   Card.isCardOwner(req.params.cardId, req.user._id)
-    .then((cardId) => Card.remove(cardId).orFail())
+    .then((card) => card.remove())
     .then((cardsData) => res.send(cardsData))
     .catch((err) => {
+      console.log('err: ', err);
       if (err instanceof mongoose.Error.ValidationError) {
         return next(new NotFoundError('Переданы некорректные данные при удалении карточки.'));
       } return next(err);

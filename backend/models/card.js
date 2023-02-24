@@ -39,11 +39,13 @@ const cardSchema = new mongoose.Schema(
 cardSchema.statics.isCardOwner = function (cardId, userId) {
   return this.findById(cardId).orFail(new NotFoundError('Такая карточка не существует.'))
     .then((card) => {
+      console.log('card: ', card);
       const cardOwnerId = JSON.stringify(card.owner._id);
       const userID = JSON.stringify(userId);
       if (cardOwnerId !== userID) {
         return Promise.reject(new ForbiddenError('Нельзя удалять чужие карточки.'));
-      } return cardId;
+      }
+      return card;
     });
 };
 
