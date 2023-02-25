@@ -1,6 +1,6 @@
 class Api {
-  constructor({ baseUrl, headers, mode, credentials }) {
-    this._BASECONFIG = { headers, mode, credentials }
+  constructor({ baseUrl, mode, credentials, headers }) {
+    this._BASECONFIG = { mode, credentials, headers }
     this._baseUrl = baseUrl;
     this._getServerResponse = this._getServerResponse.bind(this);
   }

@@ -46,8 +46,8 @@ export const authorize = ({ email, password }) => {
 export const checkTokenApi = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
-    mode: 'cors',
-    credentials: 'include',
+    // mode: 'cors',
+    // credentials: 'include',
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

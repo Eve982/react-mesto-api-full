@@ -8,9 +8,9 @@ function Main({
   onEditProfile,
   onAddPlace,
   onCardClick,
-  cards,
   onCardLike,
   onCardDelete,
+  cards,
 }) {
   const currentUser = useContext(CurrentUserContext);
 

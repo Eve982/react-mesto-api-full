@@ -60,6 +60,7 @@ function App() {
   }
 
   function checkToken() {
+    console.log('localStorage.getItem("jwt"): ', localStorage.getItem("jwt"));
     if (localStorage.getItem("jwt")) {
       checkTokenApi(localStorage.getItem("jwt"))
         .then((data) => {
@@ -148,6 +149,12 @@ function App() {
         closeAllPopups();
       }
     };
+    // const handleOutsideClick = (event) => {
+    //   if (popupRef.current && !popupRef.current.contains(event.target)) {
+    //     closeAllPopups();
+    //   }
+    // };
+
     if (
       isEditAvatarPopupOpen ||
       isEditProfilePopupOpen ||
@@ -155,6 +162,7 @@ function App() {
       isImagePopupOpen
     ) {
       window.addEventListener("keydown", close);
+      // window.addEventListener('mouseup', handleOutsideClick);
       return () => window.removeEventListener("keydown", close);
     }
   }, [
@@ -177,18 +185,18 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     !isLiked
-      ? api.setLike(card._id, !isLiked).then((newCard) => {
+      ? api.setLike(card._id, !isLiked).then((card) => {
           setCards((state) =>
-            state.map((c) => (c._id === card._id ? newCard : c))
+            state.map((c) => (c._id === card._id ? card : c))
           );
         })
       : api
           .deleteLike(card._id, !isLiked)
-          .then((newCard) => {
+          .then((card) => {
             setCards((state) =>
-              state.map((c) => (c._id === card._id ? newCard : c))
+              state.map((c) => (c._id === card._id ? card : c))
             );
           })
           .catch((err) => {
