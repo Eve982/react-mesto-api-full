@@ -60,16 +60,13 @@ function App() {
   }
 
   function checkToken() {
-    console.log('localStorage.getItem("jwt"): ', localStorage.getItem("jwt"));
-    if (localStorage.getItem("jwt")) {
-      checkTokenApi(localStorage.getItem("jwt"))
-        .then((data) => {
-          setLoggedIn(true);
-          history.push("/");
-          setLogin(data.data.email);
-        })
-        .catch((err) => console.log(err));
-    }
+    checkTokenApi()
+      .then((data) => {
+        setLoggedIn(true);
+        history.push("/");
+        setLogin(data.email);
+      })
+      .catch((err) => console.log(err));
   }
 
   useEffect(() => {
@@ -113,18 +110,6 @@ function App() {
       });
   }
 
-  function handleEditAvatarClick() {
-    setIsEditAvatarPopupOpen(true);
-  }
-
-  function handleEditProfileClick() {
-    setIsEditProfilePopupOpen(true);
-  }
-
-  function handleAddPlaceClick() {
-    setIsAddPlacePopupOpen(true);
-  }
-
   function handleInfoTooltipOpen() {
     setIsInfoTooltipOpen(true);
   }
@@ -134,7 +119,7 @@ function App() {
     setIsImagePopupOpen(true);
   }
 
-  function closeAllPopups() {
+  function closeAllPopups(e) {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
@@ -149,12 +134,6 @@ function App() {
         closeAllPopups();
       }
     };
-    // const handleOutsideClick = (event) => {
-    //   if (popupRef.current && !popupRef.current.contains(event.target)) {
-    //     closeAllPopups();
-    //   }
-    // };
-
     if (
       isEditAvatarPopupOpen ||
       isEditProfilePopupOpen ||
@@ -162,7 +141,6 @@ function App() {
       isImagePopupOpen
     ) {
       window.addEventListener("keydown", close);
-      // window.addEventListener('mouseup', handleOutsideClick);
       return () => window.removeEventListener("keydown", close);
     }
   }, [
@@ -227,9 +205,9 @@ function App() {
             path="/"
             loggedIn={loggedIn}
             component={Main}
-            onEditAvatar={handleEditAvatarClick}
-            onEditProfile={handleEditProfileClick}
-            onAddPlace={handleAddPlaceClick}
+            onEditAvatar={() => setIsEditAvatarPopupOpen(true)}
+            onEditProfile={() => setIsEditProfilePopupOpen(true)}
+            onAddPlace={() => setIsAddPlacePopupOpen(true)}
             onCardClick={handleCardClick}
             cards={cards}
             onCardLike={handleCardLike}

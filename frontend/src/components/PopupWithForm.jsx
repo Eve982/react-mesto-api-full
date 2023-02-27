@@ -7,12 +7,13 @@ function PopupWithForm({
   btnText,
   onSubmit,
 }) {
+
   return (
     <div
-      onClick={onClose}
+      onMouseDown={onClose}
       className={`popup popup_type_${name} ${isOpen ? "popup_opened" : ""}`}
     >
-      <div className="popup__container" onClick={(e) => e.stopPropagation()}>
+      <div className="popup__container" onMouseDown={(e) => e.stopPropagation()}>
         <button
           type="button"
           className="popup__close-button hover-opacity"

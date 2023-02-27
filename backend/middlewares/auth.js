@@ -8,7 +8,6 @@ const UnauthorizedMessage = 'Необходима авторизация';
 module.exports = (req, res, next) => {
   const jwtToken = () => {
     if (req.cookies.jwt) {
-      console.log('req.cookies.jwt: ', req.cookies.jwt);
       return req.cookies.jwt;
     }
     return next(new UnauthorizedError(UnauthorizedMessage));

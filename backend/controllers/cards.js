@@ -5,9 +5,10 @@ const BadRequestError = require('../errors/bad_request_error');
 const { CREATED } = require('../utils/constants');
 
 module.exports.getCards = (req, res, next) => {
-  // Card.find({}).select({}).populate('owner').sort({ _id: -1 })
-  Card.find({}).select({}).sort({ _id: -1 })
-    .then((cardsData) => res.send(cardsData))
+  Card.find({}).select({}).populate('owner').sort({ _id: -1 })
+    .then((cardsData) => {
+      res.send(cardsData);
+    })
     .catch(next);
 };
 
