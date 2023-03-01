@@ -1,5 +1,5 @@
-// export const BASE_URL = "https://eve982.pet-project.nomoredomains.work";
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://api.eve982.pet-project.nomoredomains.work/";
+// export const BASE_URL = "http://localhost:3000";
 
 function getServerResponse(res) {
   if (res.ok) {
