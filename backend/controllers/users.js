@@ -42,8 +42,6 @@ module.exports.getUserById = (req, res, next) => {
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) {
         return next(new BadRequestError('Переданы некорректные данные при поиске пользователя.'));
-      } if (err.name === 'DocumentNotFoundError') {
-        return next(new NotFoundError('Пользователя с таким ID не существует.'));
       } return next(err);
     });
 };
@@ -97,9 +95,7 @@ module.exports.getMyPage = (req, res, next) => {
     .orFail()
     .then((userData) => res.send(userData))
     .catch((err) => {
-      if (err instanceof mongoose.Error.CastError) {
-        return next(new BadRequestError('Переданы некорректные данные при поиске пользователя.'));
-      } if (err.name === 'DocumentNotFoundError') {
+      if (err.name === 'DocumentNotFoundError') {
         return next(new NotFoundError('Пользователя с таким ID не существует.'));
       } return next(err);
     });

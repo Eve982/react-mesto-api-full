@@ -71,6 +71,7 @@ class Api {
 }
 
 const api = new Api({
+  // baseUrl: "https://api.eve982.pet-project.nomoredomains.work",
   baseUrl: "http://localhost:3000",
   mode: 'cors',
   credentials: 'include',
