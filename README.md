@@ -21,6 +21,11 @@
 ![eslint](https://img.shields.io/badge/-eslint-090909?style=for-the-badge&logo=eslint)
 ![Postman](https://img.shields.io/badge/-Postman-090909?style=for-the-badge&logo=Postman)
 
+![Nginx](https://img.shields.io/badge/-Nginx-090909?style=for-the-badge&logo=Nginx)
+![nano](https://img.shields.io/badge/-nano-090909?style=for-the-badge&logo=nano)
+![certbot](https://img.shields.io/badge/-certbot-090909?style=for-the-badge&logo=certbot)
+![openssh](https://img.shields.io/badge/-ssh-090909?style=for-the-badge&logo=ssh)
+
 ## Функционал API:
 - Регистрация;
 - Авторизация;
