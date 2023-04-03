@@ -1,7 +1,6 @@
 # Проект Mesto фронтенд + бэкенд
 Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения, написанные на React и Node.js соответственно.
 
-- IP 158.160.38.225
 - Frontend http://eve982.pet-project.nomoredomains.work
 - Backend http://api.eve982.pet-project.nomoredomains.work
 
