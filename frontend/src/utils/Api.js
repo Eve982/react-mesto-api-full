@@ -1,3 +1,5 @@
+import BASE_URL from "./constants";
+
 class Api {
   constructor({ baseUrl, mode, credentials, headers }) {
     this._BASECONFIG = { mode, credentials, headers }
@@ -71,8 +73,9 @@ class Api {
 }
 
 const api = new Api({
-  // baseUrl: "http://localhost:3000",
-  baseUrl: "https://api.eve982.pet-project.nomoredomains.work/",
+//   baseUrl: "http://localhost:3000",
+//   baseUrl: "https://api.eve982.pet-project.nomoredomains.work/",
+  baseUrl: BASE_URL,
   mode: 'cors',
   credentials: 'include',
   headers: {

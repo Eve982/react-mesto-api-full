@@ -7,6 +7,7 @@ const ALLOWED_CORS = [
   'https://eve982.pet-project.nomoredomains.work',
   'http://eve982.pet-project.nomoredomains.work',
   'http://localhost:3001',
+  'http://localhost:3002',
 ];
 
 module.exports = {
