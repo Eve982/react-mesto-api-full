@@ -1,5 +1,5 @@
 # Проект Mesto фронтенд + бэкенд
-Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения.
+Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения, написанные на React и Node.js соответственно.
 
 - IP 158.160.38.225
 - Frontend http://eve982.pet-project.nomoredomains.work
@@ -7,17 +7,19 @@
 
 Приложение предоставляет возможность создавать свой профиль и размещать в нем фотографии. Сайт разработан по методологии mobile-first и адаптирован под просмотр на разрешениях экрана от 320px до 1440px.
 
-# Проект Mesto фронтенд + бэкенд
-
 ## Технологии:
 ![JavaScript](https://img.shields.io/badge/-JavaScript-090909?style=for-the-badge&logo=JavaScript)
-![React](https://img.shields.io/badge/-React-090909?style=for-the-badge&logo=React)
+![React](https://img.shields.io/badge/-React-090909?style=for-the-badge&logo=REACT)
 ![BEM](https://img.shields.io/badge/-BEM_nested-090909?style=for-the-badge&logo=BEM)
 ![CSS3](https://img.shields.io/badge/-CSS3-090909?style=for-the-badge&logo=CSS3)
 ![HTML5](https://img.shields.io/badge/-HTML5-090909?style=for-the-badge&logo=HTML5)
-![Express](https://img.shields.io/badge/-Express-090909?style=for-the-badge&logo=Express)
+
 ![Node.js](https://img.shields.io/badge/-Node.js-090909?style=for-the-badge&logo=Node.js)
+![Express](https://img.shields.io/badge/-Express-090909?style=for-the-badge&logo=Express)
 ![MongoDB](https://img.shields.io/badge/-MongoDB-090909?style=for-the-badge&logo=MongoDB)
+![dotenv](https://img.shields.io/badge/-dotenv-090909?style=for-the-badge&logo=dotenv)
+![nodemon](https://img.shields.io/badge/-nodemon-090909?style=for-the-badge&logo=nodemon)
+![eslint](https://img.shields.io/badge/-eslint-090909?style=for-the-badge&logo=eslint)
 ![Postman](https://img.shields.io/badge/-Postman-090909?style=for-the-badge&logo=Postman)
 
 ## Функционал API:
