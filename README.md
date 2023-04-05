@@ -3,6 +3,7 @@
 
 - Frontend http://eve982.pet-project.nomoredomains.work
 - Backend http://api.eve982.pet-project.nomoredomains.work
+- OpenAPI докуметация: https://eve982.pet-project.nomoredomains/api-docs
 
 Приложение предоставляет возможность создавать свой профиль и размещать в нем фотографии. Сайт разработан по методологии mobile-first и адаптирован под просмотр на разрешениях экрана от 320px до 1440px.
 
@@ -19,12 +20,12 @@
 ![dotenv](https://img.shields.io/badge/-dotenv-090909?style=for-the-badge&logo=dotenv)
 ![nodemon](https://img.shields.io/badge/-nodemon-090909?style=for-the-badge&logo=nodemon)
 ![eslint](https://img.shields.io/badge/-eslint-090909?style=for-the-badge&logo=eslint)
+![swagger](https://img.shields.io/badge/-swagger-090909?style=for-the-badge&logo=swagger)
 ![Postman](https://img.shields.io/badge/-Postman-090909?style=for-the-badge&logo=Postman)
 
-![Nginx](https://img.shields.io/badge/-Nginx-090909?style=for-the-badge&logo=Nginx)
-![nano](https://img.shields.io/badge/-nano-090909?style=for-the-badge&logo=nano)
+<!-- ![Nginx](https://img.shields.io/badge/-Nginx-090909?style=for-the-badge&logo=Nginx)
 ![certbot](https://img.shields.io/badge/-certbot-090909?style=for-the-badge&logo=certbot)
-![openssh](https://img.shields.io/badge/-ssh-090909?style=for-the-badge&logo=ssh)
+![openssh](https://img.shields.io/badge/-ssh-090909?style=for-the-badge&logo=ssh) -->
 
 ## Функционал API:
 - Регистрация;
@@ -80,11 +81,14 @@ cd react-mesto-api-full
 ## Локальный запуск проекта:
 Для запуска данного проекта локально Вам поднадобиться открыть 2 окна терминала. 
 
-В первом окне терминала находясь в папке react-mesto-api-full/backend выполнить команду для запуска сервера:
+В первом окне терминала находясь в папке react-mesto-api-full/backend выполнить команду для установки зависимостей:
+```
+npm i
+```
+затем команду для запуска сервера:
 ```
 npm run start
 ```
-
 или команду для запуска сервера в режиме разработчика если Вы планируете вносить изменения в приложение:
 ```
 npm run dev
@@ -128,3 +132,11 @@ https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0
 Если возникнут проблемы с деплоем, то необходимо проверить как работает модуль frontend/src/utils/constants.js который ты добавила. Данный модуль используется в следующих файлах:
 - [/react-mesto-api-full/backend/utils/Api.js](/react-mesto-api-full/backend/utils/Api.js);
 - [/react-mesto-api-full/backend/utils/Auth.jsx](/react-mesto-api-full/backend/utils/Auth.jsx). -->
+
+
+400 — переданы некорректные данные в методы создания карточки, пользователя, обновления аватара пользователя или профиля;
+404 — карточка или пользователь не найден.
+500 — ошибка по-умолчанию.
+401 — передан неверный логин, пароль или JWT;
+403 — попытка удалить чужую карточку;
+409 — при регистрации указан email, который уже существует на сервере.

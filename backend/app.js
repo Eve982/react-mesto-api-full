@@ -1,6 +1,5 @@
-const express = require('express');
-const process = require('process');
 require('dotenv').config();
+const express = require('express');
 
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -8,18 +7,17 @@ const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/cors');
 
-const { PORT = 3000, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 const routes = require('./routes/index');
 const { SERVER_ERROR } = require('./utils/constants');
 
 const app = express();
 
 app.use(requestLogger);
-
+app.disable('x-powered-by');
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors);
-mongoose.connect(MONGO_URL, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
 app.get('/crash-test', () => {
   setTimeout(() => {
@@ -37,4 +35,4 @@ app.use((err, req, res, next) => {
   next();
 });
 
-app.listen(PORT);
+app.listen(process.env.PORT);

@@ -41,7 +41,7 @@ module.exports.getUserById = (req, res, next) => {
     .then((userData) => res.send(userData))
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) {
-        return next(new BadRequestError('Переданы некорректные данные при поиске пользователя.'));
+        return next(new BadRequestError('Переданы некорректные данные.'));
       } return next(err);
     });
 };
@@ -52,7 +52,7 @@ module.exports.updateUser = (req, res, next) => {
     .then((userData) => res.send(userData))
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
-        return next(new BadRequestError('Переданы некорректные данные при обновлении профиля.'));
+        return next(new BadRequestError('Переданы некорректные данные.'));
       } return next(err);
     });
 };
@@ -63,7 +63,7 @@ module.exports.updateAvatar = (req, res, next) => {
     .then((avatarData) => res.send(avatarData))
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
-        return next(new BadRequestError('Переданы некорректные данные при обновлении аватара.'));
+        return next(new BadRequestError('Переданы некорректные данные.'));
       } return next(err);
     });
 };
