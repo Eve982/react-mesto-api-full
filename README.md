@@ -120,6 +120,11 @@ http://localhost:3001/signin
 ## Ссылка на макет в Figma:
 https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1
 
+## Планы по доработке проекта
+- доработать swagger-доку в ветке redoc;
+- настроить CI/CD;
+- добавить возможность удаления профиля.
+
 ### **Автор**
 [Ольга Боброва](https://github.com/eve982)
 
